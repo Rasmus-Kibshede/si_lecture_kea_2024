@@ -1,8 +1,7 @@
 import convert from 'xml-js';
 import fs from 'fs';
-import { Person } from './models/person.js';
-
-const xml = fs.readFileSync('../../../me.xml', 'utf8');
+import { Person } from '../models/person.js';
+import { getFileURLPath } from '../util.js';
 
 const options = {
   ignoreComment: true,
@@ -10,8 +9,9 @@ const options = {
   compact: true,
 };
 
-const readXMLFile = (xml) => {
-  const result = convert.xml2js(xml, options); // or convert.xml2json(xml, options)
+export const readXMLFile = (fileName) => {
+  const xml = fs.readFileSync(getFileURLPath(fileName), 'utf8');
+  const result = convert.xml2json(xml, options);
   const me = result.me;
 
   const person = new Person(
@@ -20,5 +20,3 @@ const readXMLFile = (xml) => {
   );
   return person;
 };
-
-console.log(readXMLFile(xml));

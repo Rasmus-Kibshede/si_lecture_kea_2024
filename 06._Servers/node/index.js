@@ -1,17 +1,17 @@
-import "dotenv/config";
-import express from "express";
+import 'dotenv/config';
+import express from 'express';
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-import csvRouter from "./routes/csvRouter.js";
+import csvRouter from './routes/csvRouter.js';
 app.use(csvRouter);
 
-import { formatCSVFileToJson } from "./fileReaders/read_csv_file.js";
-console.log(await formatCSVFileToJson("person.csv"));
+import xmlRouter from './routes/xmlRouter.js';
+app.use(xmlRouter);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () =>
