@@ -1,8 +1,9 @@
 import fs from 'fs';
-import { Person } from './models/person.js';
+import { getFileURLPath } from '../util.js';
+import { Person } from '../models/person.js';
 
-const fileReaderText = (path) => {
-  const response = fs.readFileSync(path, 'utf8');
+export const fileReaderText = (fileName) => {
+  const response = fs.readFileSync(getFileURLPath(fileName), 'utf8');
 
   const lines = response.split('\n');
 
@@ -12,5 +13,3 @@ const fileReaderText = (path) => {
     return new Person(dataArr[0], Number(dataArr[1].split(' ')[1]));
   });
 };
-
-console.log(fileReaderText('../../../me.txt'));
