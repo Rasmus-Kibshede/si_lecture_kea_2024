@@ -1,14 +1,9 @@
-//Load the package
 import { load } from 'js-yaml';
 import fs from 'fs';
-import { Person } from './models/person.js';
+import { getFileURLPath } from '../util.js';
 
-const fileReaderYaml = (path) => {
-  const data = fs.readFileSync(path, 'utf8');
-
+export const fileReaderYaml = (filenName) => {
+  const data = fs.readFileSync(getFileURLPath(filenName), 'utf8');
   const yamlData = load(data);
-
-  return new Person(`${yamlData.firstname} ${yamlData.lastname}`, yamlData.age);
+  return yamlData;
 };
-
-console.log(fileReaderYaml('../../../me.yaml'));
