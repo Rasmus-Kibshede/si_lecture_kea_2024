@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "python-server"
+version = "0.1.0"
+description = ""
+authors = ["Rasmus-Kibshede <2740ralle@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.109.2"
+uvicorn = "^0.27.1"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

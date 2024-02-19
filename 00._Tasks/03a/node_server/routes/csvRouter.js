@@ -3,7 +3,7 @@ import { formatCSVFileToJson } from "../fileReaders/read_csv_file.js";
 
 const csvRouter = Router();
 
-csvRouter.get("/csv/person", async (req, res) => {
+csvRouter.get("/csv", async (req, res) => {
   res.send({ data: await formatCSVFileToJson('person.csv')});
 });
 

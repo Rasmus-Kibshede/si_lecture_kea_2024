@@ -3,8 +3,8 @@ import { readXMLFile } from '../fileReaders/read_xml_file.js';
 
 const xmlRouter = Router();
 
-xmlRouter.get('/xml/person', async (req, res) => {
-  res.send({ data: await readXMLFile('person.xml') });
+xmlRouter.get('/xml', async (req, res) => {
+  res.send({ data: readXMLFile('person.xml') });
 });
 
 export default xmlRouter;

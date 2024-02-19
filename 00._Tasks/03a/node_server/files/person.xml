@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <root>
   <firstname>Rasmus</firstname>
   <lastname>Kibshede</lastname>
   <age>30</age>
   <heightInCm>186</heightInCm>
-  <hobbies>gaming</hobbies>
-  <hobbies>programming</hobbies>
+  <hobbies>
+    <hobby>gaming</hobby>
+    <hobby>programming</hobby>
+  </hobbies>
   <address>
     <street>Hovedgaden 1</street>
     <city>København</city>
