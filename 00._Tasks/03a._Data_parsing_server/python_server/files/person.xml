@@ -1,0 +1,15 @@
+<root>
+  <firstname>Rasmus</firstname>
+  <lastname>Kibshede</lastname>
+  <age>30</age>
+  <heightInCm>186</heightInCm>
+  <hobbies>
+    <hobby>gaming</hobby>
+    <hobby>programming</hobby>
+  </hobbies>
+  <address>
+    <street>Hovedgaden 1</street>
+    <city>København</city>
+    <zipcode>1000</zipcode>
+  </address>
+</root>
