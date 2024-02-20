@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { fileReaderText } from '../fileReaders/read_txt_file.js';
+import { fetch_data } from '../util.js';
 
 const txtRouter = Router();
 
@@ -9,11 +10,9 @@ txtRouter.get('/format/txt', async (req, res) => {
 
 txtRouter.get('/txt', async (req, res) => {
   try {
-    const response = await fetch('http://127.0.0.1:8000/format/txt');
-    const result = await response.json();
-    res.send({ data: JSON.parse(result) });
+    res.send({ data: JSON.parse(await fetch_data('txt'))});
   } catch (e) {
-    res.send({ data: 'Error fetching data'});
+    res.send({ data: 'Error fetching data' });
   }
 });
 

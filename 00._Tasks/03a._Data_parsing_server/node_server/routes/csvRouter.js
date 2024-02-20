@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { formatCSVFileToJson } from '../fileReaders/read_csv_file.js';
+import { fetch_data } from '../util.js';
 
 const csvRouter = Router();
 
@@ -8,9 +9,7 @@ csvRouter.get('/format/csv', async (req, res) => {
 });
 
 csvRouter.get('/csv', async (req, res) => {
-  const response = await fetch('http://127.0.0.1:8000/format/csv');
-  const result = await response.json();
-  res.send({ data: result });
+  res.send({ data: await fetch_data('csv') });
 });
 
 export default csvRouter;
