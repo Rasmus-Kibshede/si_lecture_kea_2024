@@ -1,19 +1,9 @@
 import json
- 
 
 def read_txt(file_path):
-    dict1 = {}
- 
-# creating dictionary
+    words = {}
     with open(file_path) as fh:
- 
         for line in fh:
- 
-        # reads each line and trims of extra the spaces 
-        # and gives only the valid words
-            command, description = line.strip().split(None, 1)
- 
-            dict1[command] = description.strip()
-            print(dict1)
-            
-        return json.dumps(dict1)
+            title, description = line.strip().split(None, 1)
+            words[title] = description.strip()
+        return json.dumps(words)
