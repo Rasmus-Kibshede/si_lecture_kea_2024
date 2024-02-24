@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live chat</title>
+  </head>
+  <h1>Live chat</h1>
+  <textarea readonly id="chat" rows="50" cols="200"></textarea>
+  <form id="chatForm">
+    <input type="text" id="text" size="199" autocomplete="off" />
+  </form>
+
+  <script>
+    let enteredName = false;
+
+    let clientName = prompt('Whats your name?');
+
+    if (clientName != null) {
+      document.getElementById('chat').value += 'Connecting...\n';
+      enteredName = true;
+    }
+
+    if (enteredName) {
+      const chatTextarea = document.getElementById('chat');
+      const chatForm = document.getElementById('chatForm');
+      const textInput = document.getElementById('text');
+
+      let source = new EventSource('/chat/' + clientName);
+      source.onmessage = (e) => {
+        chatTextarea.value += e.data + '\n';
+      };
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        fetch('/write', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: textInput.value, actClient: clientName }),
+        });
+        textInput.value = '';
+      });
+    }
+  </script>
+</html>
