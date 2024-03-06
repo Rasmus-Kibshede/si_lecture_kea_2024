@@ -7,4 +7,4 @@ users = No access
 items = Read only name
 posts = Read and write all
 
-![alt text](SI_db_grantee.png)
+![alt text](SI_db_grantee.jpg)
