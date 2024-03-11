@@ -5,8 +5,9 @@
 - Password: GcCK60fKWJ'x
 
 ## Table access:
-users = No access<br />
+users = Only access to own data<br />
 items = Read only name<br />
 posts = Read and write all<br />
+secrets = No Access<br />
 
-![alt text](SI_db_grantee.jpg)
+![alt text](er_diagram.png)
