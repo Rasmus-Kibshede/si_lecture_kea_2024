@@ -42,8 +42,6 @@ Using MySQL with granular access control provides several benefits and drawbacks
 
 5. **Compatibility Challenges**: Some applications or frameworks may not fully support granular access control features provided by MySQL, which could lead to compatibility issues or limited functionality when integrating with such systems.
 
-In summary, while granular access control in MySQL offers significant benefits in terms of security and compliance, it also comes with challenges related to complexity, performance, administration, and compatibility that need to be carefully addressed to maximize its effectiveness.
-
 ### Postgresql
 
 **Pros:**
@@ -70,8 +68,6 @@ In summary, while granular access control in MySQL offers significant benefits i
 
 5. **Compatibility Considerations**: Some applications or frameworks may not fully support PostgreSQL's granular access control features, leading to compatibility issues or limitations in functionality when integrating with such systems. Administrators should assess compatibility requirements and consider alternative solutions or workarounds as necessary.
 
-In conclusion, while PostgreSQL's granular access control capabilities offer significant benefits in terms of security, compliance, and flexibility, they also entail challenges related to complexity, performance, administration, and compatibility that require careful consideration and management to maximize their effectiveness and mitigate associated risks.
-
 ### MongoDB
 
 **Pros:**
@@ -83,8 +79,6 @@ In conclusion, while PostgreSQL's granular access control capabilities offer sig
 3. **Scalability**: MongoDB's granular access control mechanisms are designed to scale with the database, enabling organizations to manage access controls effectively across large and distributed environments without sacrificing performance.
 
 4. **Compliance Support**: MongoDB's granular access control features help organizations comply with regulatory requirements such as GDPR, HIPAA, or PCI DSS by enforcing strict access controls, auditing user activities, and ensuring data protection and privacy.
-
-5. **Integration with LDAP/AD**: MongoDB supports integration with LDAP or Active Directory (AD), allowing organizations to leverage existing identity management systems for user authentication and role assignment, streamlining access control management.
 
 **Cons:**
 
@@ -98,7 +92,31 @@ In conclusion, while PostgreSQL's granular access control capabilities offer sig
 
 5. **Compatibility Considerations**: Some applications or frameworks may not fully support MongoDB's granular access control features, leading to compatibility issues or limitations in functionality when integrating with such systems. Administrators should assess compatibility requirements and consider alternative solutions or workarounds as necessary.
 
-In summary, while MongoDB's granular access control features offer significant benefits in terms of security, flexibility, and scalability, they also pose challenges related to complexity, performance, administration, and compatibility that require careful consideration and management to maximize their effectiveness and mitigate associated risks.
+### Comparison
+**MySQL:**
+
+1. **Access Control Model**: MySQL traditionally uses a privilege-based access control model, where privileges are granted to users at the global, database, table, or column level. However, the granularity of access control is limited compared to other databases.
+  
+2. **Privilege Types**: MySQL provides standard privileges such as SELECT, INSERT, UPDATE, DELETE, as well as administrative privileges like CREATE, DROP, and GRANT. It also supports granting privileges to specific databases or tables.
+
+3. **User Management**: MySQL manages users, roles, and permissions through its built-in authentication system. Users are granted permissions directly or through roles, but the level of granularity in permissions is not as fine as in some other systems.
+
+**MongoDB:**
+
+1. **Access Control Model**: MongoDB uses a role-based access control (RBAC) model, offering more flexibility and granularity in access control compared to MySQL. It allows administrators to define roles with specific privileges on databases, collections, and even individual documents or fields.
+
+2. **Role-Based Access**: MongoDB allows the creation of custom roles with specific privileges, which can be assigned to users or applications. These roles can control access to CRUD operations, index management, and administrative actions.
+
+3. **Integration with LDAP/AD**: MongoDB supports integration with LDAP or Active Directory (AD), allowing organizations to leverage existing identity management systems for user authentication and role assignment.
+
+**PostgreSQL:**
+
+1. **Access Control Model**: PostgreSQL provides a highly flexible and robust access control mechanism, offering fine-grained control over database objects. It supports an extensive range of privileges at the database, schema, table, column, and row levels.
+
+2. **Role-Based Access**: PostgreSQL uses a role-based access control (RBAC) system similar to MongoDB, allowing administrators to define roles with specific permissions and assign them to users or other roles. Permissions can be granted at various levels of granularity.
+
+3. **Row-Level Security (RLS)**: PostgreSQL offers advanced features like Row-Level Security (RLS), allowing administrators to restrict access to specific rows based on predefined policies. This feature is particularly useful for implementing complex access control requirements.
+
 
 ### Conclusion
 In summary, while MySQL provides basic privilege-based access control, MongoDB and PostgreSQL offer more advanced role-based access control mechanisms with finer granularity. MongoDB excels in document-level and field-level access control, while PostgreSQL offers extensive flexibility with features like row-level security. The choice between these databases depends on specific security requirements, scalability needs, and the complexity of access control policies within your application or organization.
