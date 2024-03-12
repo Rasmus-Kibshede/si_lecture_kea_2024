@@ -11,10 +11,12 @@ GcCK60fKWJ'x
 ```
 
 ## Table access levels:
-``users`` = Only access to own data<br />
-``items`` = Read only name<br />
-``posts`` = Read and write all<br />
-``secrets`` = No Access<br />
+| Tables  | Permissions |
+| ------------- | ------------- |
+| users | Only access to own data  |
+| items  | Read only column name  |
+| posts  | Read and write all  |
+| secrets  | No Access  |
 
 ### Diagram
 ![alt text](er_diagram.png)
