@@ -1,7 +1,7 @@
 # Exposee
 
 - Download postgresql: https://www.postgresql.org/download/
-- Run this in the psql terminal: 
+- Run this in the terminal: 
 ```
 psql "sslmode=require hostaddr=34.159.194.199 user=guest dbname=postgres"
 ```
@@ -14,7 +14,7 @@ GcCK60fKWJ'x
 | Tables  | Permissions |
 | ------------- | ------------- |
 | users | Only access to own data  |
-| items  | Read only column name  |
+| items  | Read only column *name*  |
 | posts  | Read and write all  |
 | secrets  | No Access  |
 
