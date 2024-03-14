@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python SSE</title>
+  </head>
+  <body>
+    <h1>SSE</h1>
+    <div id="date"></div>
+
+    <script>
+      const dateDiv = document.getElementById("date");
+
+      const eventSource = new EventSource("/sse");
+
+      eventSource.onmessage = (event) => {
+        dateDiv.textContent = event.data;
+      };
+
+      eventSource.onopen = (event) => {
+        dateDiv.textContent = "Connected";
+      };
+
+      eventSource.onerror = (event) => {
+        if (event.target.readyState === EventSource.CLOSED) {
+          dateDiv.textContent = "Connection was closed";
+        } else if (event.target.readyState === EventSource.CONNECTING) {
+          dateDiv.textContent = "Connecting...";
+        } else {
+          dateDiv.textContent = "Error";
+        }
+      };
+    </script>
+  </body>
+</html>
