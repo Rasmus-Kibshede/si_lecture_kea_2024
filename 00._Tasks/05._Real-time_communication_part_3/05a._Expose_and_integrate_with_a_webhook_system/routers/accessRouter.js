@@ -1,32 +1,18 @@
 import { Router } from "express";
+import { deleteOneWebhook } from "../database/actions/deleteWebhook.js";
+import { createOneWebhook } from "../database/actions/createWebhooks.js";
 const router = Router();
 
-import db from '../database/connection_sqlite.js';
+const EVENTTYPE = "access";
 
-router.post('/monitoring/access', (req, res) => {
-    try {
-        db.run(`INSERT INTO webhooks (url) VALUES (?)`, req.body.url);
-    } catch (error) {
-        res.send({ message: 'Error: ' + error });
-    }
-
-    res.status(200).send({ message: 'Monitoring access subscribed!' });
+router.post('/monitoring/access', async (req, res) => {
+    const { message, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
+    res.status(status).send(message);
 });
 
 router.delete('/monitoring/access', async (req, res) => {
-    try {
-        const reuslt = await db.run(`DELETE FROM webhooks WHERE url = ?`, req.body.url);
-
-        if (reuslt.changes === 0) {
-            res.status(400).send({ message: 'Error: No such url!' });
-        } else {
-            res.status(200).send('Monitoring access unsubscribed!');
-        }
-
-    }
-    catch (error) {
-        res.status(400).send({ message: 'Error: ' + error });
-    }
+    const { message, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
+    res.status(status).send(message);
 });
 
 export default router;

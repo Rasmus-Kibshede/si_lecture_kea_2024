@@ -1,18 +1,18 @@
 import express from 'express';
-import db from './database/connection_sqlite.js';
 
 const app = express();
 app.use(express.json());
 
-import alertRouter from './Routers/alertRouter.js';
+import alertRouter from './routers/alertRouter.js';
 app.use(alertRouter);
 
-import accessRouter from './Routers/accessRouter.js';
+import accessRouter from './routers/accessRouter.js';
 app.use(accessRouter);
 
+import { readWebhooks } from './database/actions/readWebhooks.js';
 app.get('/monitoring/ping', async (req, res) => {
-    const data = await db.all(`SELECT * FROM webhooks`);
-    res.status(200).send({ data: data });
+    const { status, message } = await readWebhooks();
+    res.status(status).send({ message: message });
 });
 
 app.get('*', (req, res) => {

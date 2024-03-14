@@ -26,6 +26,6 @@
 ````
 {
      url: [your_endpoint], 
-     password: [your_password] 
+     password: [your_password]
 }
 ````
