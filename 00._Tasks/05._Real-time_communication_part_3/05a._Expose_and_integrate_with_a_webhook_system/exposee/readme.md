@@ -35,5 +35,5 @@
 Create register a webhook with one of the following endpoints
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
-| POST | /monitoring/alert | To add a webhook for alerts events |
-| POST | /monitoring/access | To add a webhook for access events |
+| POST | https://webhookappkea.azurewebsites.net/monitoring/alert | To add a webhook for alerts events |
+| POST | https://webhookappkea.azurewebsites.net/monitoring/access | To add a webhook for access events |
