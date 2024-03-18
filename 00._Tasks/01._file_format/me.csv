@@ -1,0 +1,3 @@
+firstname, lastname, age, heightInCm, isMarried, hasChildren
+Rasmus, kibshede, 30, 186, false, true
+Hans, Larsen, 55, 182, true, true

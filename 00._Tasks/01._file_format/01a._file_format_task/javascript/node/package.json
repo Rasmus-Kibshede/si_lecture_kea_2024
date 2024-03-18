@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "readcsv": "node read_csv_file.js",
+    "readtxt": "node read_txt_file.js",
+    "readxml": "node read_xml_file.js",
+    "readyaml": "node read_yaml_file.js",
+    "readjson": "node read_json_file.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "js-yaml": "^4.1.0",
+    "xml-js": "^1.6.11"
+  }
+}
