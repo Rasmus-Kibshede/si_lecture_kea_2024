@@ -3,6 +3,9 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
+import cors from "cors";
+app.use(cors());
+
 import alertRouter from './routers/alertRouter.js';
 app.use(alertRouter);
 
