@@ -7,19 +7,19 @@ const router = Router();
 const EVENTTYPE = "alert";
 
 router.get('/monitoring/alert', async (req, res) => {
-    const { status, message } = await readWebhooks(EVENTTYPE);
-    res.status(status).send({ message: message });
+    const { status, data: data } = await readWebhooks(EVENTTYPE);
+    res.status(status).send({ data: data });
 });
 
 router.post('/monitoring/alert', async (req, res) => {
-    const { message, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
-    console.log(message, status);
-    res.status(status).send(message);
+    const { data, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
+    console.log(data, status);
+    res.status(status).send(data);
 });
 
 router.delete('/monitoring/alert', async (req, res) => {
-    const { message, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
-    res.status(status).send(message);
+    const { data, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
+    res.status(status).send(data);
 });
 
 export default router;

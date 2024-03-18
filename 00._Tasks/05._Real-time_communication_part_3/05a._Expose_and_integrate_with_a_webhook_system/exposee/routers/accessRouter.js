@@ -7,19 +7,19 @@ const router = Router();
 const EVENTTYPE = "access";
 
 router.get('/monitoring/access', async (req, res) => {
-    const { status, message } = await readWebhooks(EVENTTYPE);
-    res.status(status).send({ message: message });
+    const { status, data: data } = await readWebhooks(EVENTTYPE);
+    res.status(status).send({ data: data });
 });
 
 
 router.post('/monitoring/access', async (req, res) => {
-    const { message, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
-    res.status(status).send(message);
+    const { data, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
+    res.status(status).send(data);
 });
 
 router.delete('/monitoring/access', async (req, res) => {
-    const { message, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
-    res.status(status).send(message);
+    const { data, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
+    res.status(status).send(data);
 });
 
 export default router;

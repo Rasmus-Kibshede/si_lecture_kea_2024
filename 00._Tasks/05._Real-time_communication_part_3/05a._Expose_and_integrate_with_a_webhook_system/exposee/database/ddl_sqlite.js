@@ -17,8 +17,9 @@ db.exec(`CREATE TABLE IF NOT EXISTS webhooks (
 );
 `);
 
+//     db.run(`INSERT INTO webhooks (event_type, url, password) VALUES ("alert", "https://rasmus.serveo.net/alert", "1234");`);
 // seed the database
 if (isInDeleteMode) {
-    db.run(`INSERT INTO webhooks (event_type, url, password) VALUES ("alert", "https://rasmus.serveo.net/alert", "1234");`);
-    db.run(`INSERT INTO webhooks (event_type, url, password) VALUES ("access", "https://Hans.serveo.net/notification", "4321");`);
+    db.run(`INSERT INTO webhooks (event_type, url, password) VALUES ("access", "http://localhost:3000/hansnen", "4321");`);
+    db.run(`INSERT INTO webhooks (event_type, url, password) VALUES ("access", "http://localhost:3000/webhookdata", "4321");`);
 }

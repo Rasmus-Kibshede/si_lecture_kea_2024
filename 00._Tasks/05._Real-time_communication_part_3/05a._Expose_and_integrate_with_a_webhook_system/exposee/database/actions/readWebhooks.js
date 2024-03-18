@@ -8,8 +8,8 @@ export const readWebhooks = async (eventType = null) => {
         } else {
             data = await db.all(`SELECT * FROM webhooks`);
         }
-        return { message: data, status: 200 };
+        return { data: data, status: 200 };
     } catch (error) {
-        return { message: 'Error: ' + error, status: 400 };
+        return { data: 'Error: ' + error, status: 400 };
     }
 };
