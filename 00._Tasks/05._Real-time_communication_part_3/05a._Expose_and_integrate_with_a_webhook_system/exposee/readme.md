@@ -55,8 +55,13 @@ To unreceive notifications for events, unregister a webhook with one of the foll
 }
 ````
 
+### Other api functions
 
-## API Endpoints
+- **Ping:**
+  - Endpoint: `GET https://webhookappkea.azurewebsites.net/monitoring/ping`
+  - Action: To call all webhooks for testing
+  - Description: This endpoint is for testing functionality of all webhooks
+
 
 ## API Endpoints
 
