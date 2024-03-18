@@ -12,7 +12,7 @@
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
-| GET | /monitoring/ping | To retrieve all webhooks |
+| GET | /monitoring/ping | To call all webhooks for testing |
 | GET | /monitoring/alert | To retrieve all alert webhooks |
 | GET | /monitoring/access | To retrieve all access webhooks |
 | --- | --- | --- |
@@ -29,3 +29,11 @@
      password: [your_password]
 }
 ````
+
+## User guide
+
+Create register a webhook with one of the following endpoints
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| POST | /monitoring/alert | To add a webhook for alerts events |
+| POST | /monitoring/access | To add a webhook for access events |
