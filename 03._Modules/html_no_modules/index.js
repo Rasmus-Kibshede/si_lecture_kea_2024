@@ -1,1 +1,0 @@
-const classA = new ClassA();

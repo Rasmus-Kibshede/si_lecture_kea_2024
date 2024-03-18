@@ -1,8 +1,0 @@
-firstname Rasmus
-lastname Kibshede
-age 30
-heightInCm 186
-hobbies gaming, programming
-street Hovedgaden 1
-city København
-zipcode 1000
