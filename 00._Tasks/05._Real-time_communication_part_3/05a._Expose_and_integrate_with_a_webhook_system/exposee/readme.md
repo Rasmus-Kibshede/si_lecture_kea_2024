@@ -25,7 +25,7 @@ To receive notifications for events, register a webhook with one of the followin
   - Endpoint: `POST https://webhookappkea.azurewebsites.net/monitoring/access`
   - Action: To add a webhook for access events
 
-#### Exected data in the body
+#### Exected data to be passed in the body
 
 ```json
 {
@@ -46,7 +46,7 @@ To unreceive notifications for events, unregister a webhook with one of the foll
   - Endpoint: `DELETE https://webhookappkea.azurewebsites.net/monitoring/access`
   - Action: To add a webhook for access events
 
-#### Exected data in the body
+#### Exected data to be passed in the body
 
 ```json
 {
