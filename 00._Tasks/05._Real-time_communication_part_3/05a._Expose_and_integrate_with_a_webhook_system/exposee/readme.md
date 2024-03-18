@@ -63,7 +63,7 @@ To unreceive notifications for events, unregister a webhook with one of the foll
   - Description: This endpoint is for testing functionality of all webhooks
 
 
-## API Endpoints
+## API Endpoints Overview
 
 | HTTP Verbs | Endpoints             | Action                                     |
 |------------|-----------------------|--------------------------------------------|
