@@ -15,6 +15,10 @@
 
 ### Register Webhook
 
+``To revice data from the webhook server, the users endpoint must be a post request.``
+Example in nodejs with express:
+![alt text](image.png)
+
 To receive notifications for events, register a webhook with one of the following endpoints:
 
 - **Alerts:**
