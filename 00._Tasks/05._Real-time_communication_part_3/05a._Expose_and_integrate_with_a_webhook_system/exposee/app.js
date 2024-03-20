@@ -13,7 +13,7 @@ import { readWebhooks } from './database/actions/readWebhooks.js';
 
 app.get('/monitoring/ping', async (req, res) => {
     try {
-        const { status, data: data } = await readWebhooks();
+        const { status, data } = await readWebhooks();
 
         data.forEach((webhook) => {
             fetch(webhook.url, {
