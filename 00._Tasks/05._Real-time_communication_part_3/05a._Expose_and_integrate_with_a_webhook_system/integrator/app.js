@@ -28,6 +28,26 @@ app.post('/register', async (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log(`The server: \x1b[36mhttp://localhost:3000`)
+app.delete('/unregister', async (req, res) => {
+
+    const webhookUrl = req.body.webhookUrl;
+    const url = req.body.url;
+
+    const response = await fetch(webhookUrl, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: url }),
+    });
+
+    const result = await response.json();
+
+    res.status(200).send({ data: result });
+});
+
+
+
+app.listen(8080, () => {
+    console.log(`The server: \x1b[36mhttp://localhost:8080`)
 });
