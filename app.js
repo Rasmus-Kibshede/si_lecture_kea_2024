@@ -3,9 +3,6 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-import cors from "cors";
-app.use(cors());
-
 import alertRouter from './routers/alertRouter.js';
 app.use(alertRouter);
 
@@ -16,7 +13,7 @@ import { readWebhooks } from './database/actions/readWebhooks.js';
 
 app.get('/monitoring/ping', async (req, res) => {
     try {
-        const { status, data: data } = await readWebhooks();
+        const { status, data } = await readWebhooks();
 
         data.forEach((webhook) => {
             fetch(webhook.url, {
