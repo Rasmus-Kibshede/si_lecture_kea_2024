@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Form</title>
+  </head>
+  <body>
+    <h2>Basic form</h2>
+    <form action="http://localhost:8080/form" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" />
+      <br />
+      <label for="password">Email:</label>
+      <input type="password" id="password" name="password" />
+      <br />
+      <button type="submit">Login</button>
+    </form>
+
+    <h2>File form</h2>
+    <form action="http://localhost:8080/fileform" method="POST" enctype="multipart/form-data">
+      <label for="file">File</label>
+      <input type="file" name="file" id="file" accept="image/png" />
+      <br />
+      <label for="description">description</label>
+      <input type="text" name="description" id="description" />
+      <br />
+      <button type="submit">Send file</button>
+    </form>
+  </body>
+</html>
