@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Example</title>
+  </head>
+  <body>
+    <button id="send" onclick="sendGreetings()">Send Message</button>
+
+    <script>
+      const dadJokes = [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them.",
+        "What do you call fake spaghetti? An impasta!",
+        "I'm reading a book on anti-gravity. It's impossible to put down!",
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "Why don’t skeletons fight each other? They don’t have the guts.",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised!",
+        "Parallel lines have so much in common. It’s a shame they’ll never meet.",
+        "What do you get when you cross a snowman with a vampire? Frostbite!",
+        "Why did the bicycle fall over? Because it was two-tired!",
+        "I used to play piano by ear, but now I use my hands.",
+        "I'm reading a book about anti-gravity. It's impossible to put down!",
+        "What do you call a fish wearing a bowtie? Sofishticated.",
+        "I only know 25 letters of the alphabet. I don't know y.",
+        "Why did the math book look sad? Because it had too many problems.",
+        "I'm on a whiskey diet. I've lost three days already!",
+        "I told my wife she should embrace her mistakes. She gave me a hug.",
+        "What did the janitor say when he jumped out of the closet? Supplies!",
+        "I would tell you a joke about UDP, but you might not get it.",
+        "Why don't eggs tell jokes? Because they might crack up!",
+      ];
+
+      // To randomly select a joke from the array
+      const randomJoke = dadJokes[Math.floor(Math.random() * dadJokes.length)];
+
+      const socket = new WebSocket("ws://anders.serveo.net");
+
+      socket.onopen = () => {
+        console.log("Connected to the server");
+      };
+
+      socket.onmessage = (message) => {
+        console.log(`Received message: ${message.data}`);
+      };
+
+      socket.onerror = (error) => {
+        console.log(`An error occurred: ${error}`);
+      };
+
+      const sendGreetings = () => {
+        socket.send(randomJoke);
+      };
+    </script>
+  </body>
+</html>
