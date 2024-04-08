@@ -33,9 +33,12 @@
       ];
 
       // To randomly select a joke from the array
-      const randomJoke = dadJokes[Math.floor(Math.random() * dadJokes.length)];
+      const randomJoke = () => {
+        const randomNumber = Math.floor(Math.random() * dadJokes.length);
+        return dadJokes[randomNumber];
+      };
 
-      const socket = new WebSocket("ws://anders.serveo.net");
+      const socket = new WebSocket("ws://localhost:8080");
 
       socket.onopen = () => {
         console.log("Connected to the server");
@@ -50,7 +53,7 @@
       };
 
       const sendGreetings = () => {
-        socket.send(randomJoke);
+        socket.send(randomJoke());
       };
     </script>
   </body>
