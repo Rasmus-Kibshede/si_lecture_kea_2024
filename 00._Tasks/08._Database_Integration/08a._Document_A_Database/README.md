@@ -9,7 +9,6 @@
     npm install -g dbdocs
 ````
 
-
 - Tools using for database documentation: https://dbdocs.io/docs
 
 ### dbml/cli
@@ -35,6 +34,6 @@
 
 <img src="images/image.png" width=50%>
 <img src="images/image1.png" width=50%>
-
-
+<img src="images/image3.png" width=50%>
+<img src="images/image4.png" width=50%>
 
