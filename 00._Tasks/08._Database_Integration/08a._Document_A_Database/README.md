@@ -36,4 +36,3 @@
 <img src="images/image1.png" width=50%>
 <img src="images/image3.png" width=50%>
 <img src="images/image4.png" width=50%>
-
