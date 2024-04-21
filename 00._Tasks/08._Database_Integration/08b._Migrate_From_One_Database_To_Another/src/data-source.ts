@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { User } from './entity/User.js';
+import { Post } from './entity/post.js';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -10,8 +10,8 @@ export const AppDataSource = new DataSource({
   password: '1234',
   database: 'si_migration',
   synchronize: true,
-  logging: true,
-  entities: [User],
+  entities: [Post],
   subscribers: [],
-  migrations: ["migration/*.js"],
+  migrations: ['src/migrations/**/*{.ts,.js}'],
+  migrationsTableName: 'migrations',
 });

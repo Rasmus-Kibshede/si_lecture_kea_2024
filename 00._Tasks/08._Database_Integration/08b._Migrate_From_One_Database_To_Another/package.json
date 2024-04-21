@@ -11,10 +11,16 @@
    "dependencies": {
       "mysql2": "^3.9.6",
       "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.20"
+      "typeorm": "^0.3.20"
    },
    "scripts": {
       "start": "node --loader ts-node/esm src/index.ts",
-      "typeorm": "typeorm-ts-node-esm"
+      "typeorm": "typeorm-ts-node-esm",
+      "typeorm-w-datasource": "typeorm-ts-node-esm -d ./src/data-source.ts",
+      "typeorm:up": "npm run typeorm-w-datasource migration:run",
+      "typeorm:down": "npm run typeorm-w-datasource migration:revert",
+      "typeorm:generate": "npm run typeorm migration:generate --",
+      "typeorm:create": "npm run typeorm migration:create",
+      "typeorm:sync": "npm run typeorm schema:sync"
    }
 }
