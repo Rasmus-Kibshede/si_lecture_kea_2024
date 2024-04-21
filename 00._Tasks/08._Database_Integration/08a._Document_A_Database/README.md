@@ -4,6 +4,8 @@
 
 ### dbdocs
 
+- https://dbdocs.io/ralle-2740/kino?table=movies_genres&schema=public&view=table_structure
+
 ``Install dbdocs first``
 ```` bash
     npm install -g dbdocs
