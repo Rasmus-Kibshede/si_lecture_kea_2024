@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
   port: 3306,
   username: 'root',
   password: '1234',
-  database: 'si_migration',
+  database: 'si_migration_2',
   synchronize: false,
   entities: [Post, User],
   subscribers: [],
