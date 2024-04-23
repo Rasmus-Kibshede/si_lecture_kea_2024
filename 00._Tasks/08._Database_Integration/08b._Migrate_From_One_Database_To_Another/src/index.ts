@@ -1,30 +1,31 @@
+import 'reflect-metadata';
 import { exit } from 'process';
 import { AppDataSource } from './data-source.js';
 import { Post } from './entity/post.js';
+import { User } from './entity/user.js';
 
 AppDataSource.initialize()
   .then(async () => {
-    // console.log("Inserting a new user into the database...")
-    // const user = new User()
-    // user.firstName = "Timber"
-    // user.lastName = "Saw"
-    // user.age = 25
-    // await AppDataSource.manager.save(user)
-    // console.log("Saved a new user with id: " + user.id)
+    const user1 = new User();
+    user1.firstname = 'John';
+    user1.lastname = 'Doe';
+    user1.email = 'johnDoe@testmail.com';
+    user1.password = '4321@1234';
 
-    // console.log("Loading users from the database...")
-    // const users = await AppDataSource.manager.find(User)
-    // console.log("Loaded users: ", users)
+    await AppDataSource.manager.save(user1);
 
-    // console.log("Here you can setup and run express / fastify / any other framework.")
+    const post1 = new Post();
+    post1.title = 'Post 1';
+    post1.text = 'Text 1';
+    post1.user = user1;
 
-    const post = new Post();
-    post.title = 'Post 1';
-    post.text = 'Text 1';
-    await AppDataSource.manager.save(post);
+    await AppDataSource.manager.save(post1);
 
+    const users = await AppDataSource.manager.find(User);
     const posts = await AppDataSource.manager.find(Post);
-    console.log('Loaded users: ', posts);
+
+    console.log('Loaded users: ', users);
+    console.log('Loaded posts: ', posts);
 
     exit();
   })
