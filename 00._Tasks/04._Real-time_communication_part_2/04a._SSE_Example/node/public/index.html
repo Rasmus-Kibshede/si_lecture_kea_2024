@@ -3,45 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Live chat</title>
+    <title>SSE</title>
   </head>
-  <h1>Live chat</h1>
-  <textarea readonly id="chat" rows="50" cols="200"></textarea>
-  <form id="chatForm">
-    <input type="text" id="text" size="199" autocomplete="off" />
-  </form>
+  <body>
+    <h1>SSE</h1>
 
-  <script>
-    let enteredName = false;
+    <p>Status:</p>
+    <div id="server-sent_status"></div>
 
-    let clientName = prompt('Whats your name?');
+    <p>Time:</p>
+    <div id="server-sent_time"></div>
 
-    if (clientName != null) {
-      document.getElementById('chat').value += 'Connecting...\n';
-      enteredName = true;
-    }
+    <script>
+      const serverSentStatusDiv = document.getElementById("server-sent_status");
+      const serverSentTimeDiv = document.getElementById("server-sent_time");
 
-    if (enteredName) {
-      const chatTextarea = document.getElementById('chat');
-      const chatForm = document.getElementById('chatForm');
-      const textInput = document.getElementById('text');
+      const eventSource = new EventSource("/synchhronize-time");
 
-      let source = new EventSource('/chat/' + clientName);
-      source.onmessage = (e) => {
-        chatTextarea.value += e.data + '\n';
-      };
-
-      chatForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        fetch('/write', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message: textInput.value, actClient: clientName }),
-        });
-        textInput.value = '';
+      eventSource.addEventListener("message", (event) => {
+        serverSentTimeDiv.textContent = event.data;
       });
-    }
-  </script>
+
+      eventSource.addEventListener("open", (event) => {
+        serverSentStatusDiv.textContent = "Connected";
+      });
+
+      eventSource.addEventListener("error", (event) => {
+        eventSource.addEventListener("error", (event) => {
+          if (event.target.readyState === EventSource.CLOSED) {
+            serverSentStatusDiv.textContent = "Connection was closed";
+          } else if (event.target.readyState === EventSource.CONNECTING) {
+            serverSentStatusDiv.textContent = "Connecting...";
+          } else {
+            serverSentStatusDiv.textContent = "Error";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
