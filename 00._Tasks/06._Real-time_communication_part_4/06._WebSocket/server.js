@@ -9,7 +9,7 @@ server.on("connection", (ws) => {
   ws.on("message", (message) => {
     console.log(`Message from the client: ${message}`);
     server.clients.forEach((client) => {
-        client.send(message);
+      client.send(String(message));
     });
   });
 
