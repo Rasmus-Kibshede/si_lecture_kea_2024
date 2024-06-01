@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
     <title>SSE</title>
   </head>
   <body>
@@ -14,30 +18,37 @@
     <p>Time:</p>
     <div id="server-sent_time"></div>
 
+    <butto id="btn_close_sse">Close connection</butto>
+
     <script>
-      const serverSentStatusDiv = document.getElementById("server-sent_status");
-      const serverSentTimeDiv = document.getElementById("server-sent_time");
+      const serverSentStatusDiv = document.getElementById('server-sent_status');
+      const serverSentTimeDiv = document.getElementById('server-sent_time');
+      const btnCloseSse = document.getElementById('btn_close_sse');
 
-      const eventSource = new EventSource("/synchhronize-time");
+      let eventSource = new EventSource('/synchhronize-time');
 
-      eventSource.addEventListener("message", (event) => {
+      eventSource.addEventListener('message', (event) => {
         serverSentTimeDiv.textContent = event.data;
       });
 
-      eventSource.addEventListener("open", (event) => {
-        serverSentStatusDiv.textContent = "Connected";
+      eventSource.addEventListener('open', (event) => {
+        serverSentStatusDiv.textContent = 'Connected';
       });
 
-      eventSource.addEventListener("error", (event) => {
-        eventSource.addEventListener("error", (event) => {
+      eventSource.addEventListener('error', (event) => {
+        eventSource.addEventListener('error', (event) => {
           if (event.target.readyState === EventSource.CLOSED) {
-            serverSentStatusDiv.textContent = "Connection was closed";
+            serverSentStatusDiv.textContent = 'Connection was closed';
           } else if (event.target.readyState === EventSource.CONNECTING) {
-            serverSentStatusDiv.textContent = "Connecting...";
+            serverSentStatusDiv.textContent = 'Connecting...';
           } else {
-            serverSentStatusDiv.textContent = "Error";
+            serverSentStatusDiv.textContent = 'Error';
           }
         });
+      });
+
+      btnCloseSse.addEventListener('click', () => {
+        eventSource.close();
       });
     </script>
   </body>
