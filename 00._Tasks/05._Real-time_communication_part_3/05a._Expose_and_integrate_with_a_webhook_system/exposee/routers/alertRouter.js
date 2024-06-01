@@ -12,15 +12,16 @@ router.get('/monitoring/alert', async (req, res) => {
     res.status(status).send({ data: data });
 });
 
-router.post('/monitoring/alert', validateWebhook, async (req, res) => {
+router.post('/monitoring/alert', async (req, res) => {
     const { data, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
     console.log(data, status);
-    res.status(status).send(data);
+    return res.status(status).send({ data });
 });
 
-router.delete('/monitoring/alert', validateWebhook, async (req, res) => {
+router.delete('/monitoring/alert', async (req, res) => {
     const { data, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
-    res.status(status).send(data);
+    console.log(data, status);
+    res.status(status).send({ data: data });
 });
 
 export default router;

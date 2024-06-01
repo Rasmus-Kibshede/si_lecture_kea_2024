@@ -24,7 +24,7 @@ app.post('/register', async (req, res) => {
 
     const result = await response.json();
 
-    res.status(200).send({ data: result });
+    res.status(200).send(result);
 });
 
 
@@ -43,11 +43,9 @@ app.delete('/unregister', async (req, res) => {
 
     const result = await response.json();
 
-    res.status(200).send({ data: result });
+    res.status(200).send(result);
 });
 
-
-
-app.listen(8080, () => {
-    console.log(`The server: \x1b[36mhttp://localhost:8080`)
+app.listen(3000, () => {
+    console.log(`The server: \x1b[36mhttp://localhost:3000`)
 });

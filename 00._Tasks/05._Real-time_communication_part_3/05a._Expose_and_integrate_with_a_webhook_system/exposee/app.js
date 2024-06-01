@@ -35,7 +35,7 @@ app.get('*', (req, res) => {
     res.status(404).send({ data: 'No endpoint in this path!' });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`The server: \x1b[36mhttp://localhost:${PORT}`)

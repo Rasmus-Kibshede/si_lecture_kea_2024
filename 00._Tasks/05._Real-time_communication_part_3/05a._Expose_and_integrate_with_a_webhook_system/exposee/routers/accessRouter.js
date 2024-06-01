@@ -13,13 +13,13 @@ router.get('/monitoring/access', async (req, res) => {
 });
 
 
-router.post('/monitoring/access', validateWebhook, async (req, res) => {
+router.post('/monitoring/access', async (req, res) => {
     const { data, status } = await createOneWebhook(EVENTTYPE, req.body.url, req.body.password);
     console.log(data, status);
     res.status(status).send(data);
 });
 
-router.delete('/monitoring/access', validateWebhook, async (req, res) => {
+router.delete('/monitoring/access', async (req, res) => {
     const { data, status } = await deleteOneWebhook(EVENTTYPE, req.body.url);
     res.status(status).send(data);
 });
