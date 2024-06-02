@@ -77,3 +77,9 @@ Nest is [MIT licensed](LICENSE).
 
 - https://docs.nestjs.com/graphql/quick-start
 - https://www.youtube.com/watch?v=CSfZmyzQAG8&ab_channel=AnsontheDeveloper
+
+
+## Endpoint
+
+### GraphQL playground
+http://localhost:3000/graphql
