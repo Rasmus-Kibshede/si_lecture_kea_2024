@@ -10,7 +10,7 @@ export const formatCSVFileToJson = async (fileName) => {
       `${person.firstname} ${person.lastname}`,
       Number(person.age),
       Number(person.heightInCm),
-      person.hobbies.split(",").map(hobby => hobby.trim()),  // Splitting and trimming hobbies into an array
+      person.hobbies.split(",").map(hobby => hobby.trim()),
       {
         street: person.address_street,
         city: person.address_city,
