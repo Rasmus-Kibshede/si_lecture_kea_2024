@@ -1,9 +1,10 @@
+// ../models/person.js
 export class Person {
-  constructor(name, age) {
+  constructor(name, age, heightInCm, hobbies, address) {
     this.name = name;
     this.age = age;
-    this.heightInCm,
-    this.hobbies,
-    this.address
+    this.heightInCm = heightInCm;
+    this.hobbies = hobbies;
+    this.address = address;
   }
 }
